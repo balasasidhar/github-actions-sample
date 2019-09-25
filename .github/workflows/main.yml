@@ -5,12 +5,13 @@ on:
       - master
 jobs:
   build:
-    name: Run Build
     runs-on: ubunut-16.04
+    name: Run Build
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: "10.x"
       - run: npm install
       - run: npm test
+      - run: npm build
