@@ -1,7 +1,16 @@
-steps:
-- uses: actions/checkout@master
-- uses: actions/setup-node@v1
-  with:
-    node-version: '10.x'
-- run: npm install
-- run: npm test
+name: Main workflow
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Run Build
+    runs-on: ubunut-16.04
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: npm install
+    - run: npm test
